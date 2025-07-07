@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './WhyWeStandOut.css';
 
 const data = [
@@ -27,16 +27,6 @@ const data = [
 
 function WhyWeStandOut() {
   const [activeId, setActiveId] = useState(null);
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-
-  // Track screen width dynamically
-  useEffect(() => {
-    const handleResize = () => setScreenWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const isMobile = screenWidth <= 768;
 
   const handleClick = (id) => {
     setActiveId(activeId === id ? null : id);
@@ -44,58 +34,60 @@ function WhyWeStandOut() {
 
   return (
     <section className="standout-section">
-      <div className="standout-box">
-        <h2 className="section-title">Why We Stand Out</h2>
-        <div className="circle-container">
-          {data.map((item, index) => {
-            const isActive = activeId === item.id;
-            const activeIndex = data.findIndex((d) => d.id === activeId);
+      <h2 className="section-title">Why We Stand Out</h2>
+      <div className="circle-container">
+        {data.map((item, index) => {
+          const isActive = activeId === item.id;
+          const activeIndex = data.findIndex((d) => d.id === activeId);
 
-            let shift = 0;
-            const activeShift = isMobile ? 140 : 200;
-            const neighborShift = isMobile ? 120 : 100;
+          // this is the responsiveness in js for mobile screens
+          let shift = 0;
+          const screenWidth = window.innerWidth;
+          const isMobile = screenWidth <= 768;
+          const activeShift = isMobile ? 140 : 200;
+          const neighborShift = isMobile ? 80 : 100;
 
-            if (activeId !== null) {
-              if (index < activeIndex) {
-                shift = -neighborShift; // left neighbors
-              } else if (index > activeIndex) {
-                shift = neighborShift;  // right neighbors
-              } else {
-                shift = -activeShift;   // active one
-              }
+          if (activeId !== null) {
+            if (index < activeIndex) {
+              shift = -neighborShift; // left neighbors
+            } else if (index > activeIndex) {
+              shift = neighborShift;  // right neighbors
+            } else {
+              shift = -activeShift;   // active one
             }
+          }
 
-            return (
-              <div
-                key={item.id}
-                className={`circle-wrapper ${isActive ? 'active' : ''}`}
-                style={{
-                  transform: `translateX(${shift}px)`,
-                }}
-              >
-                <div className="circle-overlay">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="standout-image"
-                    onClick={() => handleClick(item.id)}
-                  />
-                </div>
 
-                {isActive && (
-                  <div className="standout-card-right" style={{ left: '270px' }}>
-                    <div className="standout-card">
-                      <div className="standout-text">
-                        <h3>{item.title}</h3>
-                        <p>{item.description}</p>
-                      </div>
+          return (
+            <div
+              key={item.id}
+              className={`circle-wrapper ${isActive ? 'active' : ''}`}
+              style={{
+                transform: `translateX(${shift}px)`,
+              }}
+            >
+              <div className="circle-overlay">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="standout-image"
+                  onClick={() => handleClick(item.id)}
+                />
+              </div>
+
+              {isActive && (
+                <div className="standout-card-right" style={{ left: '270px' }}>
+                  <div className="standout-card">
+                    <div className="standout-text">
+                      <h3>{item.title}</h3>
+                      <p>{item.description}</p>
                     </div>
                   </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
     </section>
   );
