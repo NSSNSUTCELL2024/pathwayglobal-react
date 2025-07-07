@@ -1,0 +1,169 @@
+.standout-section {
+  background-color: #e0e0e0;
+  padding: 40px 20px;
+  text-align: center;
+  scroll-margin-top: 100px;
+  border-radius: 4rem;
+  margin: 60px auto;
+}
+
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 80px 0 60px 0;
+}
+
+.circle-wrapper {
+  position: relative;
+  transition: transform 0.5s ease;
+  display: flex;
+  align-items: center;
+}
+
+.circle-container {
+  display: flex;
+  justify-content: center;
+  gap: 130px;
+  /* keeps original spacing consistent */
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+
+/* Moves clicked circle left */
+.circle-wrapper.active {
+  transform: translateX(-240px);
+}
+
+/* Moves right-side circles right to prevent overlap */
+.circle-wrapper.shift-right {
+  transform: translateX(240px);
+}
+
+.standout-image {
+  width: 270px;
+  height: 270px;
+  border-radius: 50%;
+  border: 6px solid white;
+  object-fit: cover;
+  background-color: white;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  z-index: 2;
+  position: relative;
+}
+
+.standout-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.standout-card-right {
+  position: absolute;
+  left: 270px;
+  /* card appears to the right of active circle */
+  transition: all 0.5s ease;
+}
+
+.standout-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #cb3737;
+  padding: 0 30px 0 160px;
+  /* space inside red box */
+  height: 250px;
+  width: 400px;
+  border-radius: 120px;
+  color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  margin-left: -170px;
+  z-index: 1;
+  /* ⬇️ Red box goes under the circle */
+}
+
+
+.standout-text {
+  padding-left: 50px;
+  margin-left: 10px;
+  text-align: left;
+  max-width: 400px;
+  word-wrap: break-word;
+  flex: 1;
+}
+
+.standout-text h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.standout-text p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: black;
+}
+
+
+
+/* mobile responsiveness */
+@media (max-width: 768px) {
+  .standout-section {
+    padding: 20px 10px;
+    margin: 30px auto;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin: 40px 0;
+  }
+
+  .circle-container {
+    gap: 30px; /* reduced gap for tighter layout */
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 20px;
+  }
+
+  .standout-image {
+    width: 140px;
+    height: 140px;
+  }
+
+  .circle-wrapper.active {
+    transform: translateX(180px);
+  }
+
+  .circle-wrapper.shift-right {
+    transform: translateX(80px);
+  }
+
+  .standout-card-right {
+    left: 150px;
+  }
+
+  .standout-card {
+    width: 200px;
+    height: 130px;
+    padding: 0 20px 0 80px;
+    border-radius: 100px;
+    margin-left: -180px;
+  }
+
+  .standout-text {
+    padding-left: 20px;
+    margin-left: -10px;
+    max-width: 200px;
+  }
+
+  .standout-text h3 {
+    font-size: 1rem;
+  }
+
+  .standout-text p {
+    font-size: 0.7rem;
+  }
+}

@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import WhyWeStandOut from './WhyWeStandOut';
 
 function App() {
   return (
@@ -18,6 +19,12 @@ function App() {
           Learn React
         </a>
       </header>
+
+      <section>
+        <WhyWeStandOut />
+      </section>
+
+
     </div>
   );
 }
