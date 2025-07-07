@@ -5,21 +5,21 @@
   scroll-margin-top: 100px;
   border-radius: 4rem;
   margin: 60px auto;
-  padding: 90px 20px 25px 20px;
+  padding: 90px 20px 30px 20px;
 }
 
 
 .section-title {
-  font-size: 3rem;
+  font-size: 3.2rem;
   font-weight: 800;
-  margin: 20px 0 40px 0;
+  margin: 20px 0 50px 0;
 }
 
 .standout-box {
   border: 4px solid white;
   height: 450px;         
   border-radius: 0.6rem;             
-  padding: 20px 20px;            
+  padding: 0 20px;            
   max-width: 90%;                  
   margin: 0 auto;                  
   background-color: transparent;  
@@ -39,7 +39,7 @@
   position: relative;
   transition: all 0.5s ease;
   padding: 10px 20px;
-    scroll-padding-left: 0px;  /* 👈 Ensures first item isn't cut off */
+    scroll-padding-left: 0px;  /*  Ensures first item isn't cut off */
 }
 
 
