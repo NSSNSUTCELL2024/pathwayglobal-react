@@ -40,15 +40,16 @@ function WhyWeStandOut() {
         Why We Stand Out
       </h2>
 
-      <div className="flex justify-center md:gap-[120px] gap-[30px] relative transition-all duration-500 ease-in-out flex-nowrap overflow-x-auto md:overflow-visible pb-[20px] md:pb-0">
+      <div className="flex justify-center md:gap-[120px] relative transition-all duration-500 ease-in-out flex-nowrap overflow-x-auto md:overflow-visible pb-[20px] md:pb-0 pl-[0px] md:pl-0">
+
         {data.map((item, index) => {
           const isActive = activeId === item.id;
           const activeIndex = data.findIndex((d) => d.id === activeId);
 
           const screenWidth = window.innerWidth;
           const isMobile = screenWidth <= 768;
-          const activeShift = isMobile ? 140 : 200;
-          const neighborShift = isMobile ? 80 : 100;
+          const activeShift = isMobile ? 80 : 200;
+          const neighborShift = isMobile ? 60 : 100;
 
           let shift = 0;
           if (activeId !== null) {
@@ -64,7 +65,7 @@ function WhyWeStandOut() {
           return (
             <div
               key={item.id}
-              className="relative flex items-center transition-transform duration-500 ease-in-out in z-20"
+              className="relative flex items-center min-w-[150px] transition-transform duration-500 ease-in-out in z-20"
               style={{ transform: `translateX(${shift}px)` }}
             >
                   {/* Image Container */}
@@ -72,20 +73,20 @@ function WhyWeStandOut() {
                       <img
                           src={item.image}
                           alt={item.title}
-                          className="w-[140px] h-[140px] md:w-[270px] md:h-[270px] rounded-full border-[6px] border-white object-cover bg-white cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-[0_6px_12px_rgba(0,0,0,0.2)]"
+                          className="w-[120px] h-[120px] md:w-[270px] md:h-[270px] rounded-full border-[6px] border-white object-cover bg-white cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-[0_6px_12px_rgba(0,0,0,0.2)]"
                           onClick={() => handleClick(item.id)}
                       />
                   </div>
 
                   {/* Card Container */}
                   {isActive && (
-                      <div className="absolute left-[150px] md:left-[270px] transition-all duration-500 ease-in-out z-10">
-                          <div className="flex items-center justify-center bg-[#cb3737] h-[130px] md:h-[250px] w-[200px] md:w-[550px] rounded-[100px] md:rounded-[120px] px-[20px] md:px-[30px] pl-[80px] md:pl-[130px] ml-[-180px] md:ml-[-170px] text-white shadow-[0_8px_20px_rgba(0,0,0,0.15)] relative z-10">
-                              <div className="pl-[20px] md:pl-[50px] ml-[-10px] md:ml-[10px] text-left max-w-[200px] md:max-w-[400px] break-words flex-1">
-                                  <h3 className="text-[1rem] md:text-[1.8rem] font-extrabold mb-[10px] text-black">
+                      <div className="absolute left-[205px] md:left-[270px] transition-all duration-500 ease-in-out z-10">
+                          <div className="flex items-center justify-center bg-[#cb3737] h-[100px] md:h-[250px] w-[220px] md:w-[550px] rounded-[100px] md:rounded-[120px] px-[20px] md:px-[30px] pl-[80px] md:pl-[130px] ml-[-150px] md:ml-[-170px] text-white shadow-[0_8px_20px_rgba(0,0,0,0.15)] relative z-10">
+                              <div className="pl-[15px] md:pl-[50px] ml-[-25px] md:ml-[10px] text-left max-w-[200px] md:max-w-[400px] break-words flex-1">
+                                  <h3 className="text-[0.7rem] md:text-[1.8rem] font-extrabold mb-[5px] text-black">
                                       {item.title}
                                   </h3>
-                                  <p className="text-[0.7rem] md:text-[1rem] font-normal text-black">
+                                  <p className="text-[0.5rem] md:text-[1rem] font-normal text-black">
                                       {item.description}
                                   </p>
                               </div>
