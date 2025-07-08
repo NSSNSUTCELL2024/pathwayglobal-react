@@ -36,7 +36,7 @@ function WhyWeStandOut() {
 
   return (
     <section className="bg-[#e0e0e0] text-center scroll-mt-[100px] rounded-[4rem] my-[60px] mx-auto px-[10px] md:px-[20px] py-[20px] md:pt-[80px] md:pb-[30px]">
-      <h2 className="text-[2rem] md:text-[3.2rem] font-extrabold my-[40px] md:my-[60px] md:mb-[40px]">
+      <h2 className="text-[2rem] md:text-[3.1rem] font-extrabold my-[40px] md:my-[60px] md:mb-[40px]">
         Why We Stand Out
       </h2>
 
@@ -64,31 +64,35 @@ function WhyWeStandOut() {
           return (
             <div
               key={item.id}
-              className="relative flex items-center transition-transform duration-500 ease-in-out"
+              className="relative flex items-center transition-transform duration-500 ease-in-out in z-20"
               style={{ transform: `translateX(${shift}px)` }}
             >
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-[140px] h-[140px] md:w-[270px] md:h-[270px] rounded-full border-[6px] border-white object-cover bg-white cursor-pointer transition-transform duration-300 ease-in-out z-[2] relative hover:scale-105 hover:shadow-[0_6px_12px_rgba(0,0,0,0.2)]"
-                onClick={() => handleClick(item.id)}
-              />
-
-              {isActive && (
-                <div className="absolute left-[150px] md:left-[270px] transition-all duration-500 ease-in-out z-10">
-                  <div className="flex items-center justify-center bg-[#cb3737] h-[130px] md:h-[250px] w-[200px] md:w-[400px] rounded-[100px] md:rounded-[120px] px-[20px] md:px-[30px] pl-[80px] md:pl-[160px] ml-[-180px] md:ml-[-170px] text-white shadow-[0_8px_20px_rgba(0,0,0,0.15)] relative z-[1]">
-                    <div className="pl-[20px] md:pl-[50px] ml-[-10px] md:ml-[10px] text-left max-w-[200px] md:max-w-[400px] break-words flex-1">
-                      <h3 className="text-[1rem] md:text-[1.8rem] font-extrabold mb-[10px] text-black">
-                        {item.title}
-                      </h3>
-                      <p className="text-[0.7rem] md:text-[1rem] font-normal text-black">
-                        {item.description}
-                      </p>
-                    </div>
+                  {/* Image Container */}
+                  <div className="relative z-30">
+                      <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-[140px] h-[140px] md:w-[270px] md:h-[270px] rounded-full border-[6px] border-white object-cover bg-white cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-[0_6px_12px_rgba(0,0,0,0.2)]"
+                          onClick={() => handleClick(item.id)}
+                      />
                   </div>
-                </div>
-              )}
-            </div>
+
+                  {/* Card Container */}
+                  {isActive && (
+                      <div className="absolute left-[150px] md:left-[270px] transition-all duration-500 ease-in-out z-10">
+                          <div className="flex items-center justify-center bg-[#cb3737] h-[130px] md:h-[250px] w-[200px] md:w-[550px] rounded-[100px] md:rounded-[120px] px-[20px] md:px-[30px] pl-[80px] md:pl-[130px] ml-[-180px] md:ml-[-170px] text-white shadow-[0_8px_20px_rgba(0,0,0,0.15)] relative z-10">
+                              <div className="pl-[20px] md:pl-[50px] ml-[-10px] md:ml-[10px] text-left max-w-[200px] md:max-w-[400px] break-words flex-1">
+                                  <h3 className="text-[1rem] md:text-[1.8rem] font-extrabold mb-[10px] text-black">
+                                      {item.title}
+                                  </h3>
+                                  <p className="text-[0.7rem] md:text-[1rem] font-normal text-black">
+                                      {item.description}
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+                  )}
+              </div>
           );
         })}
       </div>
