@@ -1,6 +1,11 @@
+import React from 'react';
+import WhyWeStandOut from './WhyWeStandOut';
+
 function App() {
   return(
-    <div className='text-4xl text-red-200'>pathway global alliance</div>
+    <div className="min-h-screen bg-white">
+      <WhyWeStandOut />
+    </div>
   )
 }
 
