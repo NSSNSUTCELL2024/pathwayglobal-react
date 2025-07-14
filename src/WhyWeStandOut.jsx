@@ -76,7 +76,8 @@ function WhyWeStandOut() {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-[120px] h-[120px] md:w-[270px] md:h-[270px] rounded-full border-[6px] border-white object-cover bg-white cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-[0_6px_12px_rgba(0,0,0,0.2)]"
+                  className="w-[120px] h-[120px] md:w-[270px] md:h-[270px] rounded-full border-[6px] border-white object-cover bg-white cursor-pointer transition-transform duration-300 ease-in-out shadow-[0_6px_12px_rgba(0,0,0,0.2)] 
+             hover:scale-105 hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)"
                 />
               </div>
 
