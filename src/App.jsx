@@ -1,16 +1,19 @@
-import React from 'react';
-import WhyWeStandOut from './WhyWeStandOut';
-import Header from './components/header';
-import Footer from './components/Footer';
+import WhyWeStandOut from "./WhyWeStandOut";
+import Hero from "./pages/Hero";
+import Header from "./components/header";
+import Footer from "./components/Footer";
 
 function App() {
-  return(
-    <div className="min-h-screen">
-      <Header/>
-      <WhyWeStandOut />
-      <Footer/>
-    </div>
-  )
+  return (
+    <>
+      <Header />
+      <main>
+        <Hero/>
+        <WhyWeStandOut />
+        <Footer/>
+      </main>
+    </>
+  );
 }
 
-export default App
+export default App;

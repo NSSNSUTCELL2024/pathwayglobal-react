@@ -36,7 +36,7 @@ function WhyWeStandOut() {
 
 
   return (
-    <section className="bg-[#e0e0e0] text-center scroll-mt-[100px] rounded-[4rem] my-[60px] mx-auto px-[10px] md:px-[20px] py-[20px] md:pt-[80px] md:pb-[30px]">
+    <section className="bg-[#e0e0e0] relative -top-28 text-center scroll-mt-[100px] rounded-b-[4rem] my-[60px] mx-auto px-[10px] md:px-[20px] py-[20px] md:pt-[80px] md:pb-[30px]">
       <h2 className="text-[2rem] md:text-[3.1rem] font-extrabold my-[40px] md:my-[60px] md:mb-[40px]">
         Why We Stand Out
       </h2>

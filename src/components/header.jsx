@@ -2,8 +2,8 @@ import logo from "../assets/logo.png";
 import transLogo from "../assets/translator.png";
 function Header() {
   return (
-    <div className="h-28 flex justify-center items-center">
-      <div className="flex items-center gap-x-40 shadow-xl w-fit px-5 rounded-4xl h-fit">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full flex items-center justify-center py-4">
+      <div className="flex items-center gap-x-40 shadow-xl w-fit px-5 rounded-4xl h-fit bg-white/30 backdrop-blur-md">
         <img src={logo} alt="logo" className="cursor-pointer" />
         <nav>
           <ul className="flex items-center gap-x-7 [&_*]:cursor-pointer">
@@ -35,7 +35,7 @@ function Header() {
           </button>
         </div>
       </div>
-    </div>
+    </header>
   );
 }
 
